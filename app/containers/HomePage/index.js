@@ -71,13 +71,7 @@ HomePage.propTypes = {
     React.PropTypes.object,
     React.PropTypes.bool,
   ]),
-  repos: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.bool,
-  ]),
   onSubmitForm: React.PropTypes.func,
-  username: React.PropTypes.string,
-  onChangeUsername: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -91,8 +85,6 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
