@@ -48,23 +48,23 @@ export function injectAsyncReducer(store, isValid) {
 /**
  * Inject an asynchronously loaded saga
  */
-export function injectAsyncSagas(store, isValid) {
-  return function injectSagas(sagas) {
-    if (!isValid) checkStore(store);
-
-    invariant(
-      Array.isArray(sagas),
-      '(app/utils...) injectAsyncSagas: Expected `sagas` to be an array of generator functions'
-    );
-
-    warning(
-      !isEmpty(sagas),
-      '(app/utils...) injectAsyncSagas: Received an empty `sagas` array'
-    );
-
-    sagas.map(store.runSaga);
-  };
-}
+// export function injectAsyncSagas(store, isValid) {
+//   return function injectSagas(sagas) {
+//     if (!isValid) checkStore(store);
+//
+//     invariant(
+//       Array.isArray(sagas),
+//       '(app/utils...) injectAsyncSagas: Expected `sagas` to be an array of generator functions'
+//     );
+//
+//     warning(
+//       !isEmpty(sagas),
+//       '(app/utils...) injectAsyncSagas: Received an empty `sagas` array'
+//     );
+//
+//     sagas.map(store.runSaga);
+//   };
+// }
 
 /**
  * Helper for creating injectors
@@ -73,7 +73,6 @@ export function getAsyncInjectors(store) {
   checkStore(store);
 
   return {
-    injectReducer: injectAsyncReducer(store, true),
-    injectSagas: injectAsyncSagas(store, true),
+    injectReducer: injectAsyncReducer(store, true)
   };
 }
