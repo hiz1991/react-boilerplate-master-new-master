@@ -1,21 +1,6 @@
-// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 import axios from 'axios';
-let requestSucceeded = false;
 import {applyRouterMiddleware, Router, browserHistory} from 'react-router';
 export default (async function requestVerify(values) {
-  console.log("values", values, arguments);
-
-  // await sleep(500); // simulate server latency
-  //  window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
-  //   const addTodo = function (val) {
-  //       console.log(val);
-  //
-  //       state.showCodePart = true;
-  //       let tu;
-  //       return tu();
-  //   };
-  // Add todo handler
-
   let url = "/requestCode";
   // Assemble data
   const todo = {phoneNumber: values.phoneNumber};
