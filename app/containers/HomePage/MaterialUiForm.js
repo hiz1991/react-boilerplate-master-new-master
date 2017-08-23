@@ -2,8 +2,6 @@ import React from "react";
 import {Field, reduxForm} from "redux-form";
 import TextField from "material-ui/TextField";
 import validate from "./validate";
-import {applyRouterMiddleware, Router, browserHistory} from 'react-router';
-
 import requestVerify from './showResults';
 
 const renderTextField = ({
@@ -23,12 +21,10 @@ const renderTextField = ({
     {...custom}
   />;
 
-
-
 const MaterialUiForm = (props) => {
   const {handleSubmit, pristine, submitting} = props;
   return (
-    <form onSubmit={handleSubmit} style={{textAlign:"center"}}>
+    <form onSubmit={handleSubmit} style={{textAlign: "center"}}>
       <div>
         <Field
           inputStyle={{"paddingLeft": 28}}
