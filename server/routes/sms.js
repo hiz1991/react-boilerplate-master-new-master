@@ -1,7 +1,9 @@
 const request = require('request-promise');
 const apiKey = "JmSraHUDW9uT6Fu1rT7iO8BdwLVYvhtd";
+let async = require('asyncawait/async');
+let await = require('asyncawait/await');
 
-let okCall = function (req, res, next) {
+let okCall = function () {
   return new Promise((resolve, reject) => {
     request('https://requestb.in/1k9ajxf1', (err, res, body) => {
       if (err) {
@@ -59,20 +61,23 @@ exports.verifyCode = function (req, res, next) {
   };
   request(params)
     .then(response => {
-      let ok = okCall(req, res, next);
-      console.log(ok);
-      res.send(response)
+      console.log(response);
+      if(response.success) {
+        res.send(response);
+      }
+      (async (function makeCalls (){
+        let ok = await (okCall());
+        ok.then(async (function(res3){
+          console.log(res3);
+          ok = await (okCall());
+          ok.then(res4=>{console.log(res4);
+            res.send(response);
+          })
+        }));
+      }))();
     })
     .catch(err => {
-      // console.log("err");
-      let ok = okCall(req, res, next);
-      // console.log(ok);
-      ok.then(res3 => {
-        // console.log("res3", res3);
-        ok.then(res4 => {
-          // console.log("res4", res4);
-          res.send(err)
-        }).catch(e => console.log(e));
-      }).catch(e => console.log(e));
+      console.log("err");
+      res.send(err);
     });
 };
