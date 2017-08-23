@@ -2,7 +2,6 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import TextField from "material-ui/TextField";
 import validate from "./validate";
-import {applyRouterMiddleware, Router, browserHistory} from 'react-router';
 
 const renderTextField = ({
   inputStyle,

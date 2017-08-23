@@ -4,6 +4,7 @@ import TextField from "material-ui/TextField";
 import validate from "./validate";
 import requestVerify from './showResults';
 
+const numberPrefix = "+49";
 const renderTextField = ({
                            inputStyle,
                            pretext,
@@ -29,7 +30,7 @@ const MaterialUiForm = (props) => {
         <Field
           inputStyle={{"paddingLeft": 28}}
           name="phoneNumber"
-          pretext="+49"
+          pretext={numberPrefix}
           component={renderTextField}
           label="Your phone"
         />
