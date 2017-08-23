@@ -2,9 +2,9 @@
  * Create the store with asynchronously loaded reducers
  */
 
-import { createStore, applyMiddleware, compose } from 'redux';
-import { fromJS } from 'immutable';
-import { routerMiddleware } from 'react-router-redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import {fromJS} from 'immutable';
+import {routerMiddleware} from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 
@@ -49,7 +49,6 @@ export default function configureStore(initialState = {}, history) {
       import('./reducers').then((reducerModule) => {
         const createReducers = reducerModule.default;
         const nextReducers = createReducers(store.asyncReducers);
-
         store.replaceReducer(nextReducers);
       });
     });
