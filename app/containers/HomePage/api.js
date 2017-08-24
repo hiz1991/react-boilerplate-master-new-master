@@ -6,7 +6,8 @@ export default (async function requestVerify(values) {
   return axios.post(url, params)
     .then((res) => {
       if (res.data.success) {
-        browserHistory.push(`/features?phoneNumber=${values.phoneNumber}`);
+        browserHistory.push(`/confirm?phoneNumber=${values.phoneNumber}`);
+        return;
       }
       if (res.data.error) {
         alert("Could not send sms. Check the number");
