@@ -41,9 +41,6 @@ describe('<ProgressBar />', () => {
 
   it('should call componentDidMount', () => {
     sinon.spy(ProgressBar.prototype, 'componentDidMount');
-    const renderedComponent = mount( // eslint-disable-line
-      <ProgressBar percent={0} updateProgress={(noop) => noop} />
-    );
     expect(ProgressBar.prototype.componentDidMount.calledOnce).toEqual(true);
     ProgressBar.prototype.componentDidMount.restore();
   });

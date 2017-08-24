@@ -1,12 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
+import ConfirmationCodePage from '../index';
 
-import H1 from 'components/H1';
-import messages from '../messages';
-import FeaturePage from '../index';
-
-describe('<FeaturePage />', () => {
+describe('<ConfirmationCodePage />', () => {
   it('should render its heading', () => {
     const renderedComponent = shallow(
       <FeaturePage />

@@ -1,10 +1,10 @@
-import React from "react";
-import {Field, reduxForm} from "redux-form";
-import TextField from "material-ui/TextField";
-import validate from "./validate";
-import requestVerify from './showResults';
+import React from 'react';
+import {Field, reduxForm} from 'redux-form';
+import TextField from 'material-ui/TextField';
+import validate from './validate';
+import requestVerify from './api';
 
-const numberPrefix = "+49";
+const numberPrefix = '+49';
 const renderTextField = ({
                            inputStyle,
                            pretext,
@@ -25,19 +25,19 @@ const renderTextField = ({
 const MaterialUiForm = (props) => {
   const {handleSubmit, pristine, submitting} = props;
   return (
-    <form onSubmit={handleSubmit} style={{textAlign: "center"}}>
+    <form onSubmit={handleSubmit} style={{textAlign: 'center'}}>
       <div>
         <Field
-          inputStyle={{"paddingLeft": 28}}
-          name="phoneNumber"
+          inputStyle={{'paddingLeft': 28}}
+          name='phoneNumber'
           pretext={numberPrefix}
           component={renderTextField}
-          label="Your phone"
+          label='Your phone'
         />
       </div>
       <div>
         <br />
-        <button type="submit" disabled={pristine || submitting}>
+        <button type='submit' disabled={pristine || submitting}>
           Submit
         </button>
       </div>
@@ -46,7 +46,7 @@ const MaterialUiForm = (props) => {
 };
 
 export default reduxForm({
-  form: "MaterialUiForm", // a unique identifier for this form
+  form: 'MaterialUiForm', // a unique identifier for this form
   validate,
   requestVerify,
 })(MaterialUiForm);

@@ -1,7 +1,7 @@
-export default function(values) {
+export default function (values) {
   const errors = {};
   const requiredFields = [
-    'phoneNumber'
+    'phoneNumber',
   ];
   requiredFields.forEach(field => {
     if (!values[field]) {

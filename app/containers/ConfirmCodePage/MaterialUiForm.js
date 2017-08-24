@@ -1,16 +1,16 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import TextField from "material-ui/TextField";
-import validate from "./validate";
+import React from 'react';
+import {Field, reduxForm} from 'redux-form';
+import TextField from 'material-ui/TextField';
+import validate from './validate';
 
 const renderTextField = ({
-  inputStyle,
-  pretext,
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) =>
+                           inputStyle,
+                           pretext,
+                           input,
+                           label,
+                           meta: {touched, error},
+                           ...custom
+                         }) =>
   <TextField
     inputStyle={inputStyle}
     hintText={pretext}
@@ -22,20 +22,19 @@ const renderTextField = ({
 
 
 const MaterialUiForm = props => {
-  console.log("props",props);
-  const { handleSubmit, pristine, submitting, parentComponent } = props;
+  const {handleSubmit, pristine, submitting, parentComponent} = props;
   return (
-    <form onSubmit={val=>handleSubmit(val, parentComponent)} style={{textAlign:"center"}}>
+    <form onSubmit={val => handleSubmit(val, parentComponent)} style={{textAlign: 'center'}}>
       <div>
         <Field
-          name="confirmationCode"
+          name='confirmationCode'
           component={renderTextField}
-          label="Code from SMS"
+          label='Code from SMS'
         />
       </div>
       <div>
         <br />
-        <button type="submit" disabled={pristine || submitting}>
+        <button type='submit' disabled={pristine || submitting}>
           Submit
         </button>
       </div>
@@ -44,6 +43,6 @@ const MaterialUiForm = props => {
 };
 
 export default reduxForm({
-  form: "MaterialUiForm", // a unique identifier for this form
+  form: 'MaterialUiForm', // a unique identifier for this form
   validate
 })(MaterialUiForm);
