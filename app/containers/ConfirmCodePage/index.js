@@ -4,9 +4,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from './store';
 import requestVerify from './api';
-import MaterialUiForm from './MaterialUiForm';
-export default class ConfirmCodePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+import MaterialUiForm from './materialUiForm';
 
+export default class ConfirmCodePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <Provider store={store}>
