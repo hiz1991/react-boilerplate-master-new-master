@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
-import ConfirmCodePage from '../index';
+import HomePage from '../index';
 
-describe('<ConfirmCodePage />', () => {
+describe('<HomePage />', () => {
   it('should render its heading', () => {
     const renderedComponent = shallow(
       <MaterialUiForm />
