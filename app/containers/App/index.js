@@ -20,10 +20,10 @@ export function App(props) {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="%s - Prodigy.A.I."
+        defaultTitle="Prodigy.A.I."
         meta={[
-          { name: 'description', content: 'A React.js Boilerplate application' },
+          { name: 'description', content: 'A React.js Prodigy.A.I. application' },
         ]}
       />
       {React.Children.toArray(props.children)}

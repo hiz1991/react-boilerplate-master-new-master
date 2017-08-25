@@ -9,9 +9,11 @@ export default (async function (values, parentComponent) {
     .then((res) => {
       if (res.data.success) {
         alert("The number is verified");
+        return;
       }
       else {
         alert("The number could not be confirmed or has already been confirmed");
+        return:
       }
     });
 });

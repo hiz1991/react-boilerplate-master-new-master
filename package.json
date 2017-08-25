@@ -1,17 +1,12 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.4.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
-  },
+  "name": "prodigy-test",
+  "version": "0.0.0",
+  "description": "A Prodigy.A.I. test",
   "engines": {
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Max Stoiber",
-  "license": "MIT",
+  "author": "Khizir Putcygov",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
@@ -288,7 +283,6 @@
     "lint-staged": "3.2.1",
     "material-ui": "0.17.1",
     "mocha": "^3.0.2",
-    "morgan": "^1.7.0",
     "mz": "^2.4.0",
     "ngrok": "2.2.4",
     "node-plop": "0.5.4",
@@ -302,7 +296,6 @@
     "react-redux": "5.0.4",
     "react-router": "^2.6.1",
     "react-scripts": "1.0.0",
-    "react-sweetalert": "0.0.1",
     "redux": "3.6.0",
     "redux-form": "7.0.3",
     "redux-form-website-template": "0.0.41",
@@ -312,7 +305,6 @@
     "sinon": "2.0.0-pre",
     "style-loader": "0.13.1",
     "supertest-as-promised": "^4.0.0",
-    "sweetalert": "^1.1.3",
     "url-loader": "0.5.7",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-middleware": "1.9.0",
