@@ -4,15 +4,21 @@ let async = require('asyncawait/async');
 let await = require('asyncawait/await');
 const logger = require('../logger');
 
-let okCall = function () {
+let okCall = function (bodyData) {
+  let options = {
+    method: 'POST',
+    uri: 'https://requestb.in/tua9ertu',
+    body: bodyData || {},
+    json: true,
+  };
   return new Promise((resolve, reject) => {
-    request('https://requestb.in/1k9ajxf1', (err, res, body) => {
-      if (err) {
+    request(options)
+      .then(response => {
+        resolve(response);
+      })
+      .catch(err => {
         reject(err);
-        return;
-      }
-      resolve(body);
-    });
+      });
   });
 };
 
@@ -44,7 +50,7 @@ exports.requestCode = function (req, res) {
     });
 };
 
-exports.verifyCode = function (req, res, next) {
+exports.verifyCode = function (req, res) {
   let params = {
     method: 'GET',
     uri: 'https://api.authy.com/protected/json/phones/verification/check',
@@ -58,30 +64,31 @@ exports.verifyCode = function (req, res, next) {
       "X-Authy-API-Key": apiKey
     }
   };
-  // request(params)
-  //   .then(response => {
-  //     console.log(response);
-  //     if (true) {
-        (async(function () {
-          let ok = await(okCall());
-          ok.then(async(function (res3) {
-            console.log(res3);
-            ok = await(okCall());
-            ok.then(res4 => {
-              console.log(res4);
-              res.send(res4);
-            }).catch(err => {
-              res.send(err);
-            })
+  request(params)
+    .then(response => {
+      console.log(response);
+      //     if (true) {
+      // (async(function () {
+      okCall({phone: req.body.phoneNumber}).then(res3 => {
+        console.log(res3);
+        okCall({status: 'ok'})
+          .then(res4 => {
+            console.log(res4);
+            res.send({
+                success: true,
+                message: res4
+            });
           }).catch(err => {
-            ok.resolve();
-            res.send(err);
-          }));
-        }))();
+          res.send(err);
+        })
+      }).catch(err => {
+        res.send(err);
+      });
+      // }))();
       // }
-    // })
-    // .catch(err => {
-    //   logger.error(err.message);
-    //   res.send(err);
-    // });
+    })
+    .catch(err => {
+      logger.error(err.message);
+      res.send(err);
+    });
 };

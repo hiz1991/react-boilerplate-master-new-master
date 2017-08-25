@@ -1,11 +1,11 @@
 import axios from 'axios';
 export default (async function (values, parentComponent) {
-  const todo = {
+  const params = {
     phoneNumber: parentComponent.props.location.query.phoneNumber,
     code: values.confirmationCode
   };
   let url = "/verifyCode";
-  return axios.post(url, todo)
+  return axios.post(url, params)
     .then((res) => {
       if (res.data.success) {
         alert("The number is verified");
