@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import TextField from 'material-ui/TextField';
+import Button from 'material-ui/FlatButton';
 import validate from './validate';
 import requestVerify from './api';
 
@@ -37,9 +38,9 @@ const MaterialUiForm = (props) => {
       </div>
       <div>
         <br />
-        <button type='submit' disabled={pristine || submitting}>
+        <Button type='submit' disabled={pristine || submitting}>
           Submit
-        </button>
+        </Button>
       </div>
     </form>
   );
